@@ -1,4 +1,7 @@
+
 var taskIdCounter = 0;
+
+
 
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
@@ -23,6 +26,7 @@ var taskFormHandler = function (event) {
   document.querySelector("input[name='task-name']").value = "";
   document.querySelector("select[name='task-type']").selectedIndex = 0;
 
+
   // check if task is new or one being edited by seeing if it has a data-task-id attribute
   var isEdit = formEl.hasAttribute("data-task-id");
 
@@ -46,14 +50,20 @@ var createTaskEl = function (taskDataObj) {
   listItemEl.setAttribute("data-task-id", taskIdCounter);
   
 
+
+
+
   var taskInfoEl = document.createElement("div");
   taskInfoEl.className = "task-info";
   taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl);
 
+
   // create task actions (buttons and select) for task
   var taskActionsEl = createTaskActions(taskIdCounter);
   listItemEl.appendChild(taskActionsEl);
+
+
   tasksToDoEl.appendChild(listItemEl);
 
   taskDataObj.id = taskIdCounter;
@@ -63,6 +73,7 @@ var createTaskEl = function (taskDataObj) {
   saveTasks();
 };
 
+e
 var createTaskActions = function (taskId) {
   // create container to hold elements
   var actionContainerEl = document.createElement("div");
@@ -242,3 +253,5 @@ pageContentEl.addEventListener("click", taskButtonHandler);
 
 // for changing the status
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
+
+
